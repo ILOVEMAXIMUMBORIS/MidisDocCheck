@@ -1,0 +1,53 @@
+.workspace {
+  display: flex;
+  flex-direction: column;
+  background-color: #E7E9EF;
+  color: black;
+  display: flex;
+  width: 1100px;
+  height: 700px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Filters {
+  display: flex;
+  gap: 30px;
+  padding-left: 60px;
+}
+
+.Type {
+  width: 190px;
+}
+
+.Discipline {
+  width: 190px;
+}
+
+.priority {
+  width: 190px;
+}
+
+.errors {
+  display: flex;
+  font-size: 16px;
+  padding-top: 191px;
+  padding-left: 60px;
+}
+
+.errors text {
+  background-color: aqua;
+  font-size: 16px;
+}
+
+.export-button button {
+  background-color: #E7E9EF;
+  color: black;
+  border-radius: 10px;
+  width: 160px;
+  height: 25px;
+}
