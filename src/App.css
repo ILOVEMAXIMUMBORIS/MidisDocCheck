@@ -10,10 +10,23 @@
   margin-top: 133px;
 }
 
+button {
+  background-color: #E7E9EF;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid #303030;
+}
+
+button:hover {
+  background-color: #303030;
+  color: #D9D8D8;
+}
+
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #FFFFFF;
 }
 
 .logo {
@@ -82,4 +95,43 @@
   border-radius: 10px;
   width: 160px;
   height: 25px;
+  border: 1px solid #303030;
+}
+
+.export-button button:hover {
+  background-color: #303030;
+  color: #D9D8D8;
+}
+
+.Description {
+  border: 1px solid #303030;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+}
+
+.main-info {
+  display: flex;
+  padding-left: 60px;
+  gap: 170px;
+}
+
+.Print {
+  margin-left: 60px;
+  margin-top: 40px;
+  width: 179px;
+  height: 34px;
+}
+
+.unload {
+  margin-left: 5px;
+  margin-top: 30px;
+  width: 159px;
+  height: 34px;
+}
+
+.Scan {
+  margin-left: 370px;
+  width: 280px;
+  height: 50px;
 }
