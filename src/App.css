@@ -1,25 +1,9 @@
-.workspace {
-  display: flex;
-  flex-direction: column;
-  background-color: #E7E9EF;
-  color: black;
-  display: flex;
-  width: 1100px;
-  height: 700px;
-  border-radius: 40px;
-  margin-top: 133px;
-}
-
-button {
-  background-color: #E7E9EF;
-  color: black;
-  border-radius: 10px;
-  border: 1px solid #303030;
-}
-
-button:hover {
-  background-color: #303030;
-  color: #D9D8D8;
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main {
@@ -27,75 +11,65 @@ button:hover {
   justify-content: center;
   align-items: center;
   background-color: #FFFFFF;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  background-color: #E7E9EF;
+  color: black;
+  width: 1100px;
+  height: 700px;
+  border-radius: 40px;
+  padding: 40px;
+  position: relative;
 }
 
 .logo {
   display: flex;
-  margin-left: 40px;
-  margin-top: -35px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  justify-content: center;
+  display: flex;
 }
 
 .logo p {
-  margin-top: -3px;
-  padding-left: 10px;
-}
-
-.Filters {
-  display: flex;
-  gap: 30px;
-  padding-left: 60px;
-}
-
-.Type {
-  width: 190px;
-  height: 26px;
-  border-radius: 10px;
-  border: 1px solid #303030;
-  background-color: #E7E9EF;
-  padding-left: 20px;
-}
-
-.Discipline {
-  width: 190px;
-  height: 26px;
-  border-radius: 10px;
-  border: 1px solid #303030;
-  background-color: #E7E9EF;
-  padding-left: 20px;
-}
-
-.priority {
-  width: 190px;
-  height: 26px;
-  border-radius: 10px;
-  border: 1px solid #303030;
-  background-color: #E7E9EF;
-  padding-left: 20px;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .errors {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 16px;
-  padding-top: 191px;
-  padding-left: 60px;
+  margin-bottom: 30px;
 }
 
-.errors text {
-  background-color: aqua;
-  font-size: 16px;
+.errors span {
+  color: #FC4C00;
+  font-weight: bold;
 }
 
 .export-button button {
-  display: flex;
-  justify-content: center;
-  margin-top: 13px;
-  margin-left: 30px;
   background-color: #E7E9EF;
   color: black;
   border-radius: 10px;
   width: 160px;
-  height: 25px;
+  height: 35px;
   border: 1px solid #303030;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 .export-button button:hover {
@@ -103,35 +77,166 @@ button:hover {
   color: #D9D8D8;
 }
 
+.Filters {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.Type, .Discipline, .priority {
+  width: 190px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #303030;
+  background-color: #E7E9EF;
+  padding-left: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 .Description {
   border: 1px solid #303030;
   border-radius: 10px;
   width: 320px;
+  height: 36px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E7E9EF;
+  font-weight: 500;
 }
 
 .main-info {
   display: flex;
-  padding-left: 60px;
-  gap: 170px;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  margin-top: 10px;
+}
+
+.main-info::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-info::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.main-info::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.main-info::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #E7E9EF;
+  min-height: 50px;
+}
+
+.card:last-child {
+  border-bottom: none;
+}
+
+.card-column {
+  display: flex;
+  align-items: center;
+}
+
+.Card-Type {
+  width: 150px;
+}
+
+.Discipline-card {
+  width: 150px;
+  padding-left: 80px;
+}
+
+.Priority-Card {
+  width: 150px;
+  padding-left: 130px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Desc-Card {
+  flex: 1;
+  padding-left: 200px;
+}
+
+.priority-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.priority-критический {
+  background-color: #FF4444;
+}
+
+.priority-высокий {
+  background-color: #FF9500;
+}
+
+.priority-средний {
+  background-color: #FFCC00;
+}
+
+.priority-низкий {
+  background-color: #34C759;
+}
+
+.last-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+button {
+  background-color: #E7E9EF;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid #303030;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  padding: 0 15px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #303030;
+  color: #D9D8D8;
 }
 
 .Print {
-  margin-left: 60px;
-  margin-top: 40px;
   width: 179px;
-  height: 34px;
 }
 
 .unload {
-  margin-left: 5px;
-  margin-top: 30px;
   width: 159px;
-  height: 34px;
 }
 
 .Scan {
-  margin-left: 370px;
   width: 280px;
   height: 50px;
+  margin-left: auto;
+  font-size: 16px;
 }
