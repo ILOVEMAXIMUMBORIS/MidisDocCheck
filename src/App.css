@@ -21,10 +21,46 @@
   background-color: #E7E9EF;
   color: black;
   width: 1100px;
-  height: 700px;
+  height: 800px;
   border-radius: 40px;
   padding: 40px;
   position: relative;
+}
+
+.Check-Filter {
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 200px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+.welcome h1 {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.welcome p {
+  text-align: center;
+}
+
+.WelcomeScan {
+  width: 280px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+  font-size: 16px;
+  margin-top: 77px;
+}
+
+.Loader-icon {
+  animation: 1s spin linear infinite;
 }
 
 .logo {
@@ -33,14 +69,21 @@
   margin-bottom: 30px;
 }
 
-.logo img {
-  width: 50px;
+.logo-text {
+  text-align: center;
+  margin-top: -15px;
+  padding-bottom: 50px;
+}
+
+.logo {
+  width: 178.82;
+  height: 38.25;
   height: auto;
   justify-content: center;
   display: flex;
 }
 
-.logo p {
+.logo {
   margin-left: 15px;
   font-size: 18px;
   font-weight: 600;
@@ -111,12 +154,10 @@
 .main-info {
   display: flex;
   flex-direction: column;
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
-  border: 1px solid #ddd;
   border-radius: 10px;
-  background-color: #FFFFFF;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .main-info::-webkit-scrollbar {
@@ -202,7 +243,7 @@
 .last-buttons {
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 100px;
   gap: 20px;
 }
 
