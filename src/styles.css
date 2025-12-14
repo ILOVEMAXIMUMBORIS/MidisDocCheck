@@ -1,6 +1,3 @@
-/* =========================
-   GLOBAL RESET
-========================= */
 * {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -9,9 +6,6 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   BASE LAYOUT
-========================= */
 .main {
   display: flex;
   justify-content: center;
@@ -33,9 +27,6 @@
   position: relative;
 }
 
-/* =========================
-   PRINTER PAGE
-========================= */
 .printer-main {
   display: flex;
   justify-content: center;
@@ -57,9 +48,6 @@
   flex-direction: column;
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -73,9 +61,6 @@
   animation: 1s spin linear infinite;
 }
 
-/* =========================
-   HEADER / LOGO
-========================= */
 .logo {
   display: flex;
   justify-content: center;
@@ -93,9 +78,6 @@
   padding-bottom: 50px;
 }
 
-/* =========================
-   WELCOME / SCAN
-========================= */
 .welcome h1 {
   text-align: center;
   margin-top: 200px;
@@ -113,9 +95,6 @@
   font-size: 16px;
 }
 
-/* =========================
-   FILTERS / TOP BLOCKS
-========================= */
 .Check-Filter {
   text-align: center;
   padding-top: 150px;
@@ -131,9 +110,37 @@
   align-items: center;
 }
 
-/* =========================
-   INPUT / FILTER BLOCKS
-========================= */
+.type {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+
+  .main {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .printer-workspace {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20mm;
+  }
+}
+
+
 .Type,
 .Discipline,
 .priority {
@@ -145,6 +152,28 @@
   background-color: #E7E9EF;
   padding-left: 20px;
   font-size: 14px;
+  align-items: center;
+}
+
+.printer-Type,
+.printer-Discipline,
+.printer-priority {
+  display: flex;
+  width: 190px;
+  height: 36px;
+  padding-left: 20px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.printer-Description {
+  border-radius: 10px;
+  width: 320px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .Description {
@@ -160,9 +189,6 @@
   text-align: center;
 }
 
-/* =========================
-   ERRORS HEADER
-========================= */
 .errors {
   display: flex;
   justify-content: space-between;
@@ -176,9 +202,6 @@
   font-weight: bold;
 }
 
-/* =========================
-   MAIN INFO / SCROLL
-========================= */
 .main-info {
   display: flex;
   flex-direction: column;
@@ -206,9 +229,6 @@
   background: #555;
 }
 
-/* =========================
-   CARDS
-========================= */
 .card {
   display: flex;
   align-items: center;
@@ -255,9 +275,6 @@
   display: inline-block;
 }
 
-/* =========================
-   BUTTONS
-========================= */
 button {
   background-color: #E7E9EF;
   color: black;
@@ -283,9 +300,6 @@ button:hover {
   height: 35px;
 }
 
-/* =========================
-   ACTION BUTTONS
-========================= */
 .last-buttons {
   display: flex;
   align-items: center;

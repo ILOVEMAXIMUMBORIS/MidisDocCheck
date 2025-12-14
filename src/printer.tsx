@@ -1,11 +1,25 @@
+import { useEffect } from 'react';
 import logo from './assets/Midis_logo.svg'
 import "./normalize.css"
 import { useLocation } from 'react-router-dom'
+
+function printer() {
+  window.print();
+}
 
 export default function PrintApp() {
   const location = useLocation()
   const errors = location.state?.errors?.filteredErrors ?? [];
   console.log(JSON.stringify(errors))
+
+  useEffect(() => {
+    if (errors.length > 0) {
+      setTimeout(() => {
+        printer();
+      }, 100)
+    }
+  }, [errors])
+
   return (
     <div className="main">
       <div className="printer-workspace">
@@ -20,10 +34,10 @@ export default function PrintApp() {
 
         <div className="printer-sections">
           <div className="type">
-            <p className='Type'>Тип</p>
-            <p className='Discipline'>Дисциплина</p>
-            <p className='priority'>Приоритет</p>
-            <p className='Description'>Описание</p>
+            <p className='printer-Type'>Тип</p>
+            <p className='printer-Discipline'>Дисциплина</p>
+            <p className='printer-priority'>Приоритет</p>
+            <p className='printer-Description'>Описание</p>
           </div>
         </div>
       
@@ -44,6 +58,7 @@ export default function PrintApp() {
           )}
           </div>
         </div>
+        <div className="fixed-buttons"></div>
     </div>
   )
 }
