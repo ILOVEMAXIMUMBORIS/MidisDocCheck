@@ -1,3 +1,6 @@
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -6,6 +9,9 @@
   box-sizing: border-box;
 }
 
+/* =========================
+   BASE LAYOUT
+========================= */
 .main {
   display: flex;
   justify-content: center;
@@ -27,20 +33,69 @@
   position: relative;
 }
 
-.Check-Filter {
-  text-align: center;
-  padding-top: 150px;
-  padding-bottom: 200px;
+/* =========================
+   PRINTER PAGE
+========================= */
+.printer-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  min-height: 100%;
+  padding: 20px;
 }
 
+.printer-workspace {
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 5px 5px #8a8a8a;
+  height: 1500px;
+  width: 1100px;
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
 @keyframes spin {
   from {
     transform: rotate(0deg);
-  } to {
+  }
+  to {
     transform: rotate(360deg);
   }
 }
 
+.Loader-icon {
+  animation: 1s spin linear infinite;
+}
+
+/* =========================
+   HEADER / LOGO
+========================= */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.logo-text {
+  text-align: center;
+  margin-top: -15px;
+  padding-bottom: 50px;
+}
+
+/* =========================
+   WELCOME / SCAN
+========================= */
 .welcome h1 {
   text-align: center;
   margin-top: 200px;
@@ -53,80 +108,22 @@
 .WelcomeScan {
   width: 280px;
   height: 50px;
-  margin: 0 auto;
+  margin: 77px auto 0;
   display: block;
   font-size: 16px;
-  margin-top: 77px;
 }
 
-.Loader-icon {
-  animation: 1s spin linear infinite;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.logo-text {
+/* =========================
+   FILTERS / TOP BLOCKS
+========================= */
+.Check-Filter {
   text-align: center;
-  margin-top: -15px;
-  padding-bottom: 50px;
+  padding-top: 150px;
+  padding-bottom: 200px;
 }
 
-.logo {
-  width: 178.82;
-  height: 38.25;
-  height: auto;
-  justify-content: center;
-  display: flex;
-}
-
-.logo {
-  margin-left: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.errors {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  margin-bottom: 30px;
-}
-
-.errors span {
-  color: #FC4C00;
-  font-weight: bold;
-}
-
-.export-button button {
-  background-color: #E7E9EF;
-  color: black;
-  border-radius: 10px;
-  width: 160px;
-  height: 35px;
-  border: 1px solid #303030;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.export-button button:hover {
-  background-color: #303030;
-  color: #D9D8D8;
-}
-
-.Filters {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
+.Filters,
+.printer-section,
 .printer-sections {
   display: flex;
   gap: 30px;
@@ -134,9 +131,13 @@
   align-items: center;
 }
 
-.Type, .Discipline, .priority {
+/* =========================
+   INPUT / FILTER BLOCKS
+========================= */
+.Type,
+.Discipline,
+.priority {
   display: flex;
-  flex-direction: row;
   width: 190px;
   height: 36px;
   border-radius: 10px;
@@ -151,14 +152,33 @@
   border-radius: 10px;
   width: 320px;
   height: 36px;
-  text-align: center;
+  background-color: #E7E9EF;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #E7E9EF;
-  font-weight: 500;
+  text-align: center;
 }
 
+/* =========================
+   ERRORS HEADER
+========================= */
+.errors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.errors span {
+  color: #FC4C00;
+  font-weight: bold;
+}
+
+/* =========================
+   MAIN INFO / SCROLL
+========================= */
 .main-info {
   display: flex;
   flex-direction: column;
@@ -186,6 +206,9 @@
   background: #555;
 }
 
+/* =========================
+   CARDS
+========================= */
 .card {
   display: flex;
   align-items: center;
@@ -225,13 +248,16 @@
   padding-left: 200px;
 }
 
-.last-buttons {
-  display: flex;
-  align-items: center;
-  margin-top: 100px;
-  gap: 20px;
+.priority-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
+/* =========================
+   BUTTONS
+========================= */
 button {
   background-color: #E7E9EF;
   color: black;
@@ -252,6 +278,21 @@ button:hover {
   color: #D9D8D8;
 }
 
+.export-button button {
+  width: 160px;
+  height: 35px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+.last-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  gap: 20px;
+}
+
 .Print {
   width: 179px;
 }
@@ -266,25 +307,3 @@ button:hover {
   margin-left: auto;
   font-size: 16px;
 }
-
-.printer-workspace {
-    background-color: #FFFFFF;
-    box-shadow: 0px 0px 5px 5px #8a8a8a;
-    height: 1500px;
-    flex-direction: column;
-    color: black;
-    width: 1100px;
-    border-radius: 20px;
-    padding: 40px;
-    position: relative;
-}
-
-.printer-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFFFFF;
-  min-height: 100%;
-  padding: 20px;
-}
-
