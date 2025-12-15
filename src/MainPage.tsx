@@ -7,6 +7,8 @@ import logo from './assets/Midis_logo.svg';
 import CircleIcon from '@mui/icons-material/Circle';
 import { red, orange, lightGreen, grey } from '@mui/material/colors';
 import LinearProgress from '@mui/material/LinearProgress';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@mui/material';
 
 function MainPage() {
@@ -33,6 +35,8 @@ function MainPage() {
   const [filters, setFilters] = useState({ type: '', discipline: '', priority: '' });
   const [isScanning, setIsScanning] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   const getPriorityColor = (priority: any) => {
     const p = priority.toLowerCase();
@@ -125,18 +129,26 @@ function MainPage() {
         {isStarted ? (
           <>
           <div className="errors">
-          <div className="text">
-            <p>Найдено <span>{filteredErrors.length}</span> совпадений 
-              ({priorityCounts.critical} крит, 
-              {priorityCounts.high} выс, 
-              {priorityCounts.medium} сред, 
-              {priorityCounts.low} низ)
-            </p>
+            <div className="errors-left">
+              <p>
+                Найдено <span>{filteredErrors.length}</span> совпадений
+                ({priorityCounts.critical} крит,
+                {priorityCounts.high} выс,
+                {priorityCounts.medium} сред,
+                {priorityCounts.low} низ)
+              </p>
+
+              <div className="export-button">
+                <button onClick={Export_excel}>Экспорт в Excel</button>
+              </div>
+            </div>
+
+            <div className="mobile-burger">
+              <button onClick={() => setIsMenuOpen(true)}>
+                <MenuIcon />
+              </button>
+            </div>
           </div>
-          <div className="export-button">
-            <button onClick={Export_excel} disabled={isScanning}>Экспорт в Excel</button>
-          </div>
-        </div>
 
         <div className="filters-section">
           <div className='Filters'>

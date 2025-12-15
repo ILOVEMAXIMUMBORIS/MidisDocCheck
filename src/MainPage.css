@@ -285,3 +285,87 @@ button:hover {
   margin-left: auto;
   font-size: 16px;
 }
+
+@media (max-width: 1024px) {
+  .workspace {
+    height: auto;
+    padding: 30px;
+  }
+
+  .Filters {
+    gap: 15px;
+  }
+
+  .Type .Discipline .priority {
+    width: 160px;
+  }
+  
+  .Desc-Card {
+    padding-left: 100px;
+  }
+
+  .last-buttons {
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+  .Scan {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 724px) {
+  .workspace {
+    padding: 20px;
+    border-radius: 25px;
+  }
+
+  .errors {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .Filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .Type, .Discipline, .priority, .Description {
+    width: 100%;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .Card-Type,
+  .Discipline-card,
+  .Priority-Card,
+  .Desc-Card {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .Priority-Card {
+    padding-left: 0;
+  }
+
+  .main-info {
+    max-height: none;
+  }
+
+  .last-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 5px;
+  }
+
+  .Print,
+  .unload,
+  .Scan {
+    width: 100%;
+  }
+}
