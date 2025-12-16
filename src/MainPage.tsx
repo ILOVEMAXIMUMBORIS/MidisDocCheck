@@ -24,7 +24,7 @@ function MainPage() {
     { type: 'Название', discipline: 'ПМ.01', priority: 'Средний', description: 'Некорректное название дисциплины в содержании' },
     { type: 'Часы', discipline: 'УП.02', priority: 'Высокий', description: 'Превышение максимальной нагрузки' },
     { type: 'Темы', discipline: 'ZZ.02', priority: 'Средний', description: 'Дублирование тем в разных разделах' },
-    { type: 'Название', discipline: 'ЕН.03', priority: 'Критический', description: 'Несоответствие названия ФГОС' },
+    { type: 'флоароыфва', discipline: 'привет', priority: 'как дела', description: 'Несоответствие названия ФГОС' },
     { type: 'Часы', discipline: 'ПМ.01', priority: 'Высокий', description: 'Недостаточное количество часов на практику' },
     { type: 'Темы', discipline: 'УП.02', priority: 'Средний', description: 'Темы не соответствуют компетенциям' },
     { type: 'Название', discipline: 'ZZ.02', priority: 'Низкий', description: 'Опечатка в названии модуля' },
@@ -115,6 +115,26 @@ function MainPage() {
 
   const priorityCounts = countPriorities(filteredErrors);
 
+  const getUniqueValues = <K extends keyof ErrorItem>(
+      array: ErrorItem[],
+      key: K
+    ): ErrorItem[K][] => {
+      return [...new Set(array.map(item => item[key]))];
+    };
+
+
+  const types = getUniqueValues(errors, 'type');
+  const disciplines = getUniqueValues(errors, 'discipline');
+  const priorities = getUniqueValues(errors, 'priority');
+
+  type ErrorItem = {
+    type: string;
+    discipline: string;
+    priority: string;
+    description: string;
+  };
+
+
   return (
     <div className="main">
       <div className="workspace">
@@ -143,36 +163,47 @@ function MainPage() {
               </div>
             </div>
 
-            <div className="mobile-burger">
-              <button onClick={() => setIsMenuOpen(true)}>
-                <MenuIcon />
-              </button>
-            </div>
-          </div>
+            {isMenuOpen && (
+              <div className="mobile-menu-overlay" onClick={() => setIsMenuOpen(false)}>
+                <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
+                  <div className="mobile-menu-header">
+                    <span>Меню</span>
+                    <button onClick={() => setIsMenuOpen(false)}>
+                      <CloseIcon />
+                    </button>
+                  </div>
+                  <button onClick={Export_excel}>Экспорт в Excel</button>
+                  <button onClick={Print_execut}>Распечатать отчет</button>
+                  <button onClick={scan}>Сканировать</button>
+                  <button onClick={resetFilters}>Сбросить фильтры</button>
+                </div>
+              </div>
+            )}
+        </div> 
 
         <div className="filters-section">
           <div className='Filters'>
             <select className='Type' value={filters.type} onChange={handleTypeChange} disabled={isScanning}>
               <option value="">Тип</option>
-              <option value="Часы">Часы</option>
-              <option value="Темы">Темы</option>
-              <option value="Название">Название</option>
+              {types.map(type => ( <option key={type} value={type}>{type}</option>))}
             </select>
 
             <select className='Discipline' value={filters.discipline} onChange={handleDisciplineChange} disabled={isScanning}>
               <option value="">Дисциплина</option>
-              <option value="ЕН.03">ЕН.03</option>
-              <option value="ПМ.01">ПМ.01</option>
-              <option value="УП.02">УП.02</option>
-              <option value="ZZ.02">ZZ.02</option>
+              {disciplines.map(discipline => (
+                <option key={discipline} value={discipline}>
+                  {discipline}
+                </option>
+              ))}
             </select>
 
             <select className='priority' value={filters.priority} onChange={handlePriorityChange} disabled={isScanning}>
               <option value="">Приоритет</option>
-              <option value="Критический">Критический</option>
-              <option value="Высокий">Высокий</option>
-              <option value="Средний">Средний</option>
-              <option value="Низкий">Низкий</option>
+              {priorities.map(priority => (
+                <option key={priority} value={priority}>
+                  {priority}
+                </option>
+              ))}
             </select>
 
             <div className='Description'>Описание</div>
@@ -233,7 +264,12 @@ function MainPage() {
           )}
         </div>
 
+        <div className="Input-for-url">
+            <input type="text" placeholder='Введите ссылку или загрузите документ' className='url-input' />
+        </div>
+
         <div className="last-buttons">
+          
           <button className='Print' onClick={Print_execut} disabled={isScanning}>Распечатать отчет</button>
           <button className='unload' onClick={Export_excel} disabled={isScanning}>Выгрузить отчет</button> 
           <button className='Scan' onClick={scan} disabled={isScanning}>{isScanning ? (<img className='Loader-icon' src={loader_icon} alt='Загрузка...'></img>) : ("Сканировать")}</button>
