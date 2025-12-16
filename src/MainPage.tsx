@@ -1,7 +1,7 @@
+import './styles.css';    
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './normalize.css';
-import './styles.css';
 import loader_icon from "./assets/Loader.svg"
 import logo from './assets/Midis_logo.svg';
 import CircleIcon from '@mui/icons-material/Circle';
@@ -182,15 +182,18 @@ function MainPage() {
         <div className="main-info" style={{ overflowY: isScanning ? 'hidden' : 'auto' }}>
           {filteredErrors.length > 0 ? (
             filteredErrors.map((error, index) => (
-              <div className="card" key={index}>
-                <div className="card-column Card-Type"><p>{error.type}</p></div>
-                <div className="card-column Discipline-card"><p>{error.discipline}</p></div>
-                <div className="card-column Priority-Card">
-                  <CircleIcon sx={{
-                    color: getPriorityColor(error.priority)
-                  }}/>
-                  <p>{error.priority}</p>
+              <div className="card" key={index} style={{'--border-color': getPriorityColor(error.priority)}}>
+                <div className="card-top">
+                    <div className="card-column Card-Type"><p>{error.type}</p></div>
+                  <div className="card-column Discipline-card"><p>{error.discipline}</p></div>
+                  <div className="card-column Priority-Card">
+                    <CircleIcon sx={{
+                      color: getPriorityColor(error.priority)
+                    }} className='Priority-Dot'/>
+                    <p>{error.priority}</p>
+                  </div>
                 </div>
+                    
                 <div className="card-column Desc-Card"><p>{error.description}</p></div>
               </div>
             ))
@@ -200,7 +203,21 @@ function MainPage() {
                 {isScanning ? (
                   <>
                     <p>Проверка документов</p>
-                    <Box sx={{ width: '50%', mt: 1, ml: 31 }}>
+                    <Box sx={{
+                        width: {
+                          xs: '100%',
+                          sm: '70%',
+                          md: '50%'
+                        },
+                        mt: {
+                          xs: 2,    
+                          md: 1
+                        },
+                        ml: {
+                          xs: 0,
+                          md: 31
+                        }
+                      }}>
                       <LinearProgress />
                     </Box>
                   </>
@@ -220,6 +237,11 @@ function MainPage() {
           <button className='Print' onClick={Print_execut} disabled={isScanning}>Распечатать отчет</button>
           <button className='unload' onClick={Export_excel} disabled={isScanning}>Выгрузить отчет</button> 
           <button className='Scan' onClick={scan} disabled={isScanning}>{isScanning ? (<img className='Loader-icon' src={loader_icon} alt='Загрузка...'></img>) : ("Сканировать")}</button>
+        </div>
+
+        <div className='Mobile-last-btns'>
+          <button className='Mobile-load-file' onClick={scan}>Загрузить документ</button>
+          <button className='Mobile-scan' onClick={scan}>СКАНИРОВАТЬ</button>
         </div>
           </>
         ) : (

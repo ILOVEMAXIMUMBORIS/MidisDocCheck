@@ -326,6 +326,15 @@ button:hover {
   display: none;
 }
 
+.card-top {
+  display: flex;
+  align-items: center;
+}
+
+.Mobile-last-btns {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .workspace {
     height: auto;
@@ -409,7 +418,6 @@ button:hover {
 
 @media (max-width: 320px) {
 
-  /* ===== ОСНОВА ===== */
   .main {
     padding: 10px;
   }
@@ -421,7 +429,6 @@ button:hover {
     border-radius: 16px;
   }
 
-  /* ===== ЛОГО ===== */
   .logo img {
     max-width: 120px;
   }
@@ -434,7 +441,6 @@ button:hover {
     font-size: 13px;
   }
 
-  /* ===== WELCOME ===== */
   .welcome h1 {
     font-size: 18px;
     margin-top: 120px;
@@ -450,7 +456,6 @@ button:hover {
     font-size: 14px;
   }
 
-  /* ===== СЧЁТЧИК ===== */
   .errors {
     flex-direction: column;
     align-items: stretch;
@@ -465,7 +470,7 @@ button:hover {
   .export-button {
     display: none;
   }
-
+       
   .mobile-burger {
     display: flex;
   }
@@ -474,7 +479,6 @@ button:hover {
     flex-shrink: 0;
   }
 
-  /* ===== ФИЛЬТРЫ ===== */
   .Filters {
     flex-direction: row;
     gap: 6px;
@@ -493,13 +497,39 @@ button:hover {
     display: none;
   }
 
-  /* ===== СПИСОК ===== */
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .Mobile-last-btns {
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    gap: 10px;
+    background-color: #E7E9EF;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .Mobile-scan {
+    width: 150px;
+    margin-right: 5px;
+  }
+
+  .Mobile-load-file {
+    width: 150px;
+    margin-left: 5px;
+  }
+
   .main-info {
     margin-top: 20px;
     max-height: none;
   }
 
-  /* ===== КАРТОЧКА ===== */
   .card {
     flex-direction: column;
     align-items: flex-start;
@@ -508,15 +538,15 @@ button:hover {
     border-radius: 10px;
     background: #F2F3F7;
     margin-bottom: 8px;
+    border-right: 6px solid var(--border-color);
   }
 
   .Card-Type,
   .Discipline-card,
   .Priority-Card,
   .Desc-Card {
-    width: 100%;
     padding-left: 0;
-    font-size: 12px;
+    font-size: 12px;  
   }
 
   .Priority-Card {
@@ -528,9 +558,9 @@ button:hover {
   .Desc-Card p {
     font-size: 12px;
     line-height: 1.3;
+    padding-top: 10px;
   }
 
-  /* ===== КНОПКИ СНИЗУ ===== */
   .last-buttons {
     flex-direction: column;
     gap: 8px;
@@ -545,25 +575,21 @@ button:hover {
     font-size: 14px;
   }
 
-  /* ===== LOADER ===== */
   .Loader-icon {
     width: 20px;
     height: 20px;
   }
 
-  /* ===== EMPTY STATE ===== */
   .Check-Filter {
     padding-top: 80px;
     padding-bottom: 80px;
     font-size: 14px;
   }
 
-  /* скрываем обычные кнопки */
   .last-buttons {
     display: none;
   }
 
-  /* ===== БУРГЕР ===== */
   .mobile-burger {
     display: flex;
     margin-left: auto;
@@ -578,7 +604,6 @@ button:hover {
     padding: 0;
   }
 
-  /* ===== OVERLAY ===== */
   .mobile-menu-overlay {
     position: fixed;
     inset: 0;
@@ -589,7 +614,6 @@ button:hover {
     align-items: flex-start;
   }
 
-  /* ===== MENU ===== */
   .mobile-menu {
     background: #E7E9EF;
     width: 90%;
@@ -612,6 +636,20 @@ button:hover {
     width: 100%;
     height: 42px;
     font-size: 14px;
+  }
+
+  .Priority-Dot{
+    display: none !important;
+  }
+
+  .card-column {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-rows {
+    display: flex;
+    gap: 30px
   }
 
 }
