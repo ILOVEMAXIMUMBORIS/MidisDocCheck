@@ -1,5 +1,5 @@
 import './styles.css';    
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './normalize.css';
 import loader_icon from "./assets/Loader.svg"
@@ -36,6 +36,8 @@ function MainPage() {
   const [isScanning, setIsScanning] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [fileName, setFileName] = useState<string>('');
 
 
   const getPriorityColor = (priority: any) => {
@@ -57,6 +59,22 @@ function MainPage() {
     const newFilters = { ...filters, type: e.target.value };
     setFilters(newFilters);
     applyFilters(newFilters);
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setFileName(file.name);
+
+    console.log('Загружен файл:', file);
+    console.log('Имя:', file.name);
+    console.log('Размер:', file.size);
+
   };
 
   const handleDisciplineChange = (e: any) => {
@@ -161,21 +179,26 @@ function MainPage() {
               <div className="export-button">
                 <button onClick={Export_excel}>Экспорт в Excel</button>
               </div>
+              <button
+                className="burger-btn"
+                onClick={() => setIsMenuOpen(true)}
+                aria-label="Открыть меню"
+              >
+                <MenuIcon />
+              </button>
             </div>
 
             {isMenuOpen && (
               <div className="mobile-menu-overlay" onClick={() => setIsMenuOpen(false)}>
                 <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
                   <div className="mobile-menu-header">
-                    <span>Меню</span>
                     <button onClick={() => setIsMenuOpen(false)}>
                       <CloseIcon />
                     </button>
                   </div>
-                  <button onClick={Export_excel}>Экспорт в Excel</button>
-                  <button onClick={Print_execut}>Распечатать отчет</button>
-                  <button onClick={scan}>Сканировать</button>
-                  <button onClick={resetFilters}>Сбросить фильтры</button>
+                  <button onClick={() => {Export_excel; setIsMenuOpen(false);}}>Экспорт в Excel</button>
+                  <button onClick={() => { Print_execut(); setIsMenuOpen(false);}}>Распечатать отчет</button>
+                  <button onClick={ () => {resetFilters(); setIsMenuOpen(false);}}>Сбросить фильтры</button>
                 </div>
               </div>
             )}
@@ -265,7 +288,9 @@ function MainPage() {
         </div>
 
         <div className="Input-for-url">
-            <input type="text" placeholder='Введите ссылку или загрузите документ' className='url-input' />
+            <input type="text" placeholder={fileName ? `Загружен файл: ${fileName}` : 'Введите ссылку или загрузите документ'} className='url-input' />
+            <button className='Load-document-btn' onClick={handleUploadClick}>Загрузить документ</button>
+            <input type="file" ref={fileInputRef} style={{ display: 'none'}} onChange={handleFileChange} accept='.pdf,.doc,.docx' />
         </div>
 
         <div className="last-buttons">
@@ -276,7 +301,8 @@ function MainPage() {
         </div>
 
         <div className='Mobile-last-btns'>
-          <button className='Mobile-load-file' onClick={scan}>Загрузить документ</button>
+          <button className='Mobile-load-file' onClick={handleUploadClick}>Загрузить документ</button>
+          <input type="file" ref={fileInputRef} style={{ display: 'none'}} onChange={handleFileChange} accept='.pdf,.doc,.docx' />
           <button className='Mobile-scan' onClick={scan}>СКАНИРОВАТЬ</button>
         </div>
           </>

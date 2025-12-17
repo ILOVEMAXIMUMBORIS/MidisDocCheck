@@ -27,6 +27,10 @@
   position: relative;
 }
 
+.welcome {
+  padding-bottom: 220px;
+}
+
 .printer-main {
   display: flex;
   justify-content: center;
@@ -303,7 +307,7 @@ button:hover {
 .last-buttons {
   display: flex;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 20px;
   gap: 20px;
 }
 
@@ -337,13 +341,42 @@ button:hover {
 
 .url-input {
   width: 775px;
-  margin-top: 100px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 30px;
+  height: 34px;
 }
+
+.url-input::placeholder {
+  padding-left: 10px;
+}
+
+.Input-for-url {
+  display: flex;
+}
+
+.Load-document-btn {
+  height: 34px;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 230px;
+}
+
+.burger-btn {
+  
+  display: none;
+}
+
+.burger-btn svg {
+  font-size: 22px;
+}
+
 
 @media (max-width: 1024px) {
   .workspace {
     height: auto;
     padding: 30px;
+    width: 100%;
   }
 
   .Filters {
@@ -368,6 +401,7 @@ button:hover {
   .workspace {
     padding: 20px;
     border-radius: 25px;
+    width: 100%;
   }
 
   .errors {
@@ -391,13 +425,12 @@ button:hover {
     align-items: flex-start;
     gap: 8px;
   }
-
-  .Card-Type,
+  
   .Discipline-card,
   .Priority-Card,
   .Desc-Card {
     width: 100%;
-    padding-left: 0;
+    padding-left: 50px;
   }
 
   .Priority-Card {
@@ -425,12 +458,38 @@ button:hover {
 
   .main {
     padding: 10px;
+    height: auto;
+  }
+
+  .welcome {
+    padding-bottom: 0px;
+  }
+
+  .burger-btn {
+    display: flex;
+    border: 1px solid #303030;
+    border-radius: 10px;
+    width: 40px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E7E9EF;
+  }
+
+  .burger-btn svg {
+    font-size: 22px;
+  }
+
+  .export-button {
+    display: none;
   }
 
   .workspace {
     width: 100%;
     height: auto;
     padding: 15px;
+    padding-bottom: 90px;
     border-radius: 16px;
   }
 
@@ -465,6 +524,10 @@ button:hover {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .export-button button {
@@ -520,6 +583,23 @@ button:hover {
     width: 100%;
     padding-bottom: 5px;
     padding-top: 5px;
+  }
+
+  .Input-for-url {
+    position: fixed;
+    bottom: 40px;
+    padding-bottom: 10px;
+    right: 0;
+    width: 100%;
+    background-color: #E7E9EF;
+  }
+
+  .Input-for-url input::placeholder {
+    font-size: 10px;
+  }
+
+  .Load-document-btn {
+    display: none;
   }
 
   .Mobile-scan {
